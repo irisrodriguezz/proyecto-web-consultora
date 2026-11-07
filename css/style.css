@@ -1,0 +1,662 @@
+/* Fuente importada de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* PALETA DE COLORES Y OPACIDADES */
+
+:root {
+
+    /* Textos */
+
+--texto-principal: #ffffff;
+--texto-negro: #000000;
+--texto-sombra:  #333333;
+
+    /* Colores */
+
+--blanco-hueso: #e0e0e0;
+--blanco-hueso-oscuro: #b6b6b6;
+--azul-claro: #0056b3;
+--azul-claro2: #e6f0ff;
+--azul-electrico: #21226d;
+--gris-claro: #ebebeb;
+--gris-medio: #727272;
+--gris-medio2: #8a8a9a;
+--verde: #008000;
+--verde-claro: #e8ffe8;
+--naranja: #f8b600;
+--amarillo-huevo: #fff8e1;
+--morado: #22223a;
+--morado-1: #0b0135;
+--morado-oscuro: #33334a;
+--morado-oscuro2: #6d00d4;
+--lila-claro:#9865bb;
+--lila-oscuro: #6932a8;
+
+
+    /* Degradados */
+
+--degradado-color-1: #eae7ec;
+--degradado-color-2: #213774;
+--degradado-color-3: #cbc2ce;
+
+    /* Hover */
+
+--hover-boton-hero: #cccccc;
+--hover-azul: #3056ff;
+--hover-azul-oscuro: #000ed4;
+
+    /* Opacidades */
+
+--opacidad-01: 0.1;
+--opacidad-04: 0.4;
+--opacidad-03: 0.3;
+--opacidad-05: 0.5;
+--opacidad-07: 0.7;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    height: 100%;
+}
+
+/* SECCIÓN INDEX */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url("../img/video_parallax.gif") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efecto Parallax */
+    backdrop-filter: blur(9px);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.875rem 6.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 2rem;
+    color: var(--texto-principal);
+    user-select: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 1.8rem;
+    width: auto;
+    margin-right: 0.6rem;
+}
+
+.logo span {
+    display: inline-block;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1rem;
+    color: var(--texto-principal);
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 1.25rem;
+    padding: 0.375rem 1em;
+    transition: .5s;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation a:hover, 
+.navigation a.active {
+    color: var(--texto-sombra);
+}
+
+.navigation a span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--texto-principal);
+    border-radius: 30px;
+    z-index: -1;
+    transform: scale(0);
+    opacity: 0;
+    transition: .5s;
+}
+
+.navigation a:hover span,
+.navigation a.active span {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.flexbox {
+    display: flex;
+    gap: 1.875rem;
+    padding: 1.875rem 0;
+    width: 90%;
+    max-width: 87.5rem;
+    margin: 0 auto;
+    min-height: calc(100vh - 25rem); /* Uso calc para ajustar la altura del bloque principal */
+}
+
+.flexbox-fondo {
+    flex-grow: 1;
+    background-color: transparent;
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        var(--morado-1) 40%
+    );                           /* Añado un elemento que contiene un degradado de transparente a morado para hacer una transición entre el fondo y el footer para que no se vea tan llamativo el fondo */
+    backdrop-filter: blur(5px);
+    z-index: 15;
+    position: relative;
+    padding-top: 6.25rem;
+}
+
+.Hero {
+    position: relative; 
+    display: flex; /* Aplico Flexbox como indica el enunciado de la tarea */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    padding-top: 9.375rem;
+}
+
+#text {
+    font-size: 4rem;
+    color: var(--texto-principal);
+    text-shadow: 0.125rem 0.25rem 0.313rem var(--texto-sombra);
+    margin-bottom: 5rem;
+    margin-left: 21.875rem;
+    margin-right: 21.875rem;
+}
+
+.Hero p {
+    font-size: 1.5rem;
+    color: var(--texto-principal);
+    line-height: 1.5;
+    margin-bottom: 1.875rem 0;
+    text-align: center;
+}
+
+.Hero .boton-hero {                /* Estilado para el botón "Empezar Proyecto" */
+    display: inline-block;
+    background-color: var(--texto-principal);
+    color: var(--morado-1);
+    margin-top: 5rem;
+    padding: 0.75rem 1.875rem;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.Hero .boton-hero:hover {
+    background-color: var(--hover-boton-hero);
+}
+
+.seccion-servicios {
+    width: 90%;
+    max-width: 75rem;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 20;
+    padding: 6.25rem;
+}
+
+.seccion-servicios h1 {
+    font-size: 2.5rem;
+    color: var(--texto-principal);
+    margin-bottom: 1.25rem;
+}
+
+.galeria-servicios {
+    display: flex; /* Aplico Flexbox como indica el enunciado de la tarea */
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+}
+
+.tarjeta {
+    flex: 1 1 18.75rem; /* Añado flexbox a las tarjetas de los servicios para que su tamaño sea adaptable */
+    background-image: linear-gradient(
+    135deg,
+    rgb(from var(--degradado-color-1) r g b / var(--opacidad-03)) 0%,
+    rgb(from var(--degradado-color-2) r g b / var(--opacidad-03)) 45%,
+    rgb(from var(--degradado-color-3) r g b / var(--opacidad-03)) 150%
+    );              /* También añado un degradado de fondo a las tarjetas con opacidad baja para darle un estilo moderno */
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px var(--hover-tarjeta);
+    padding: 1.875rem;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-width: 17.5rem;
+}
+
+.tarjeta:hover {
+    transform: translateY(-0.313rem); /* Ligero efecto de elevación al pasar el ratón por encima de las tarjetas */
+    box-shadow: 0 12px 30px rgba(var(--texto-negro), 0.15);
+}
+
+.tarjeta h2::before { /* Añado un pseudo-elemento para los iconos de las tarjetas porque mi intención es que sus iconos vayan antes del título */
+    content: ''; 
+    display: block; 
+    width: 12.5rem;
+    height: 12.5rem;
+    margin: 0 auto 0.938rem auto; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tarjeta h2 {
+    font-size: 1.5rem;
+    color: var(--texto-principal);
+    margin-bottom: 0.938rem;
+    border-bottom: 2px solid rgb(from var(--texto-principal) r g b / var(--opacidad-05)); /* El separador de las tarjetas, a lo mejor lo quiero quitar */
+    padding-bottom: 0.313rem;
+}
+
+.tarjeta p {
+    font-size: 1rem;
+    color: var(--blanco-hueso);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Iconos para las tarjetas */
+
+.Web h2::before {
+    background-image: url("../img/Portatil_Tarjeta.png");
+}
+
+.Cloud h2::before {
+    background-image: url("../img/Nube_Tarjeta.png");
+}
+
+.BBDD h2::before {
+    background-image: url("../img/Cilindro_Tarjeta.png");
+}
+
+.Ciberseguridad h2::before {
+    background-image: url("../img/Candado_Tarjeta.png");
+}
+
+/* -- SECCIÓN FOOTER -- */
+
+.footer-lila {
+    background-color: var(--morado-1);
+    color: var(--blanco-hueso);
+    padding: 1.875rem 1.25rem;
+    text-align: center;
+    border-top: 1px solid rgb(from var(--texto-principal) r g b / var(--opacidad-01));
+}
+
+.footer-content {
+    max-width: 75rem;
+    margin: 0 auto;
+    display: flex; /* Aplico Flexbox como indica el enunciado de la tarea */
+    flex-direction: column;
+    align-items: center;
+    gap: 0.938rem;
+}
+
+.footer-lila p {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    line-height: 1.5;
+}
+
+.footer-nav a {
+    color: var(--blanco-hueso-oscuro);
+    text-decoration: none;
+    margin: 0 0.625rem;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover { /* Añado un ligero cambio de color y subrayado para cuando pasemos el ratón por encima */
+    color: var(--texto-principal);
+    text-decoration: underline;
+}
+
+/* -- SECCIÓN PROYECTO RESERVAS -- */
+
+.producto-estrella {
+    flex-grow: 1;
+    background-image: linear-gradient(
+    135deg,
+    rgb(from var(--degradado-color-1) r g b / var(--opacidad-03)) 0%,
+    rgb(from var(--degradado-color-2) r g b / var(--opacidad-03)) 45%,
+    rgb(from var(--degradado-color-3) r g b / var(--opacidad-03)) 150%
+    ); /* Añado el mismo estilo que las tarjetas de la sección Index.html */
+    padding: 1.875rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgb(from var(--texto-negro) r g b / var(--opacidad-05));
+    z-index: 15;
+}
+
+.producto-estrella h1 {
+    font-size: 1.5rem;
+    color: var(--texto-principal);
+    margin-bottom: 0.938rem;
+    margin-top: 0.938rem;
+    text-align: center;
+    border-bottom: 1px solid rgb(from var(--texto-principal) r g b / var(--opacidad-04));
+}
+
+.producto-estrella p {
+    font-size: 1rem;
+    color: var(--blanco-hueso);
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: justify;
+}
+
+.producto-estrella h1::before {
+    content: '';
+    display: block;
+    width: 12.5rem;
+    height: 12.5rem;
+    margin: 0.625rem auto;
+    background-image: url("../img/Calendario_Tarjeta.png"); /* Añado un icono siguiendo el mismo estilo que en las tarjetas de Index */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.barra-lateral {
+    flex-shrink: 0;
+    width: 16em;
+    background-image: linear-gradient(
+    135deg,
+    rgb(from var(--degradado-color-1) r g b / var(--opacidad-03)) 0%,
+    rgb(from var(--degradado-color-2) r g b / var(--opacidad-03)) 45%,
+    rgb(from var(--degradado-color-3) r g b / var(--opacidad-03)) 150%
+    ); /* Degradado igual que el de main para continuar la coherencia visual */
+    padding: 1.875rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgb(from var(--texto-negro) r g b / var(--opacidad-04));
+    z-index: 15;
+}
+
+.barra-lateral h2 {
+    font-size: 1.5rem;
+    color: var(--texto-principal);
+    margin-bottom: 0.938rem;
+    margin-top: 0.938rem;
+    text-align: center;
+    border-bottom: 1px solid rgb(from var(--texto-principal) r g b / var(--opacidad-04)); /* El separador del título del aside, a lo mejor lo quiero quitar */
+}
+
+.barra-lateral p {
+    font-size: 1rem;
+    color: var(--blanco-hueso);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* -- SECCIÓN CRONOLOGÍA -- */
+
+.Titulo-tabla {
+    color: var(--texto-principal);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3.125rem;
+}
+
+table {
+    width: 100%;
+    max-width: 87.5rem;
+    margin: 1.25rem auto;
+    border-collapse: collapse;
+    margin-top: 1.25rem;
+    box-shadow: 0 4px 8px rgb(from var(--texto-negro) r g b / var(--opacidad-01));
+
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 4.375rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+th {
+    background-color: var(--azul-electrico);
+    color: var(--texto-principal);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+tr:nth-child(odd) { /* Diseño con uso de :nth-child(odd) para filas impares (cebreado) */
+    background-color: var(--texto-principal);
+}
+
+tr:nth-child(even) { /* Diseño con uso de :nth-child(even) para filas pares (cebreado) */
+    background-color: var(--gris-claro);
+}
+
+.fase-titulo {
+    font-weight: bold;
+    color: var(--azul-claro);
+    background-color: var(--azul-claro2);
+    text-align: center;
+}
+
+.estado-completado { /* Estilo el estado "completado" en verde */
+    color: var(--verde);
+    font-weight: bold;
+    background-color: var(--verde-claro);
+}
+
+.estado-en-progreso {
+    color: var(--naranja); /* Estilo el estado "en progreso" en naranja */
+    font-weight: bold;
+    background-color: var(--amarillo-huevo);
+}
+
+/* -- SECCIÓN CONTACTO -- */
+
+.contenido-principal {
+    flex-grow: 1;
+    display: flex; /* Aplico Flexbox como indica el enunciado de la tarea */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 1.25rem 0;
+}
+
+#formulario-titulo {
+    color: var(--texto-principal);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 0 6px rgb(from var(--gris-medio) r g b / var(--opacidad-05));
+}
+
+form {
+    background-image: linear-gradient(
+    135deg,
+    rgb(from var(--degradado-color-1) r g b / var(--opacidad-03)) 0%,
+    rgb(from var(--degradado-color-2) r g b / var(--opacidad-03)) 45%,
+    rgb(from var(--degradado-color-3) r g b / var(--opacidad-03)) 150%
+    ); /* Añado el mismo estilo que las tarjetas de la secciones anteriores */
+    margin-bottom: 3.75rem;
+    padding: 1.875rem;
+    border-radius: 12px;
+    max-width: 56.25rem;
+    width: 90%;
+}
+
+fieldset {
+    border: none;
+    padding: 1.25rem;
+    margin-bottom: 1.563rem;
+}
+
+legend {
+    color: var(--texto-principal);
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0 0.625rem;
+    border-bottom: 1px solid var(--gris-medio);
+    line-height: 1.2;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.625rem;
+    margin-top: 0.625rem;
+    font-weight: 500;
+    color: var(--texto-principal);
+}
+
+input:not([type="checkbox"]),
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--morado);
+    border-radius: 6px;
+    background-color: var(--morado-oscuro);
+    color: var(--blanco-hueso);
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus { /* Brillo para cuando se seleccione una casilla */
+    outline: none;
+    border-color: var(--lila-oscuro);
+    box-shadow: 0 0 10px var(--lila-claro);
+}
+
+::placeholder {
+    color: var(--gris-medio2);
+    opacity: 0.8;
+}
+
+.privacidad-acepta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+}
+
+.privacidad-acepta p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--texto-principal);
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.938rem;
+    margin-top: 1.875rem;
+    background-color: var(--lila-oscuro);
+    color: var(--texto-principal);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--lila-oscuro);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--hover-azul);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 6px 20px var(--hover-azul-oscuro);
+}
+
+
+/* Responsive Design (Media Queries) */
+
+@media (max-width: 768px) /* Este es mi punto de ruptura (breakpoint) principal que es OBLIGATORIO para el Hito 3 de la tarea Responsive Design */ {
+    
+    /* En el header cambio la dirección para apilar el logo y el menú y con ello que ocupen el total del ancho y se centre
+    además, ajusto el padding y le añado un position: relative porque me daba problemas con el posición sticky del header. */
+    header {
+        flex-direction: column; 
+        padding: 1.25rem;
+        position: relative;
+        height: auto;
+    }
+
+    /* Ajusto el logo para que haya una separación entre el logo y el menú */
+    .logo {
+        margin-bottom: 1.25rem;
+        font-size: 1.8rem;
+        height: 1.5rem;
+        margin-right: 0.3rem;
+    }
+
+    /* Ajusto el contenedor de navegación para hacerlo flex, que estén centrados y que ocupen todo el ancho */
+    .navigation {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center; 
+        width: 100%;
+    }
+
+    /* Ajusto los enlaces reduciendo el tamaño de la fuente y su separación */
+    .navigation a {
+        margin: 0.5rem 0.5rem 0.8rem 0.5rem; 
+        font-size: 1rem;
+        padding: 0.3rem 0.8em; 
+    }
+
+    /*Ajusto las tarjetas para que ocupen todo el ancho disponible */
+    .tarjeta {
+        flex: 1 1 100%;
+    }
+
+    /* Ajusto el contenedor flex para que pase a una sola columna en dispositivos más pequeños */
+    .flexbox {
+        flex-direction: column;
+        width: 100%;
+        padding: 1.25rem;
+    }
+
+    /* Ajusto el main y el aside para que ocupen el 100% del ancho del contenedor y que se muestren uno debajo del otro en diseños móviles */
+    .producto-estrella,
+    .barra-lateral {
+        flex: 1 1 100%;
+    }
+}
