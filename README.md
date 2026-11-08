@@ -1,48 +1,76 @@
-# Comentario sobre la Tarea UP6 de los módulos LMSGI y Proyecto Intermodular
+# Tech Systems · Web corporativa de una consultora tecnológica
 
-En este archivo README.md explico algunos aspectos pertenecientes a mi entrega como son las decisiones de diseño elegidas así como las dificultades que han surgido a la hora de realizarla.
+Sitio web multipágina para **Tech Systems**, una consultora tecnológica ficticia con sede en Elche (España) orientada a pequeñas y medianas empresas. Está desarrollado únicamente con **HTML5 y CSS3**, sin frameworks ni JavaScript, como entrega de la Tarea UP6 de los módulos **LMSGI** (Lenguajes de Marcas y Sistemas de Gestión de Información) y **Proyecto Intermodular** del ciclo de Desarrollo de Aplicaciones Web.
+
+![Página de inicio](docs/Captura_pagina_inicio.png)
+
+## Contenido del sitio
+
+| Página | Archivo | Qué contiene |
+| --- | --- | --- |
+| Inicio | `index.html` | Sección *Hero* con el mensaje principal y botón «Empezar Proyecto», y galería con las 4 tarjetas de servicios. |
+| Proyecto | `proyecto-reservas.html` | Presentación del producto estrella, el **Sistema de Gestión de Reservas (SGR)**, y una barra lateral (`aside`) «Sobre nosotros». |
+| Cronología | `cronologia.html` | Tabla con las fases del proyecto (identificación, planificación, ejecución, control y cierre), con fechas y estado. |
+| Contacto | `contacto.html` | Página de contacto de la empresa. |
+
+### Servicios que presenta la consultora
+
+- **Desarrollo Web (Full Stack):** soluciones a medida, de la interfaz al servidor.
+- **Cloud Computing y DevOps:** infraestructura en la nube, despliegues automatizados y optimización de costes.
+- **Gestión y Optimización de BBDD:** bases de datos como servicio, con foco en rendimiento, escalabilidad y seguridad.
+- **Ciberseguridad y Auditoría:** protección de datos, análisis de vulnerabilidades y políticas de seguridad.
 
 ## Diseño
 
-El concepto de la web gira en torno al _Modern Tech Design_ por ello he decidido usar una paleta de colores que combina morados, azules eléctricos y blancos en conjunto con tendencias como el _Glassmorphism_ y aunque el resultado final luzca bastante oscura esa era la intencionalidad que yo quería darle.
+El concepto visual se basa en el estilo **Modern Tech Design**. El resultado es una web de aspecto oscuro, buscado a propósito, con una paleta de **morados, azules eléctricos y blancos** y tendencias como el **glassmorphism**.
 
-+ La tipografía he querido que sea en color blanco y **bold** para que destaque sobre los fondos oscuros.
+- **Tipografía:** texto en blanco y en negrita para que destaque sobre los fondos oscuros.
+- **Fondo animado:** un fondo en movimiento y en bucle, sin cortes mientras se navega. Lleva un efecto *blur* para dar contraste y mejorar la legibilidad del texto.
+- **Degradado de transición:** un degradado de transparente a morado entre el fondo animado y los elementos de primer plano.
+- **Tarjetas de servicios:** degradado de tres colores claros con opacidad reducida para lograr el efecto cristal (*glass*).
+- **Iconos:** de uso libre, todos con el mismo estilo 3D *glossy* para mantener la coherencia visual.
+- **Logo y favicon:** el favicon conserva el color original; el logo del encabezado se convirtió a blanco con un editor de imágenes para que combine con el nombre de la empresa y el menú.
+- **Tabla de cronología:** tonos azules y filas pares e impares alternadas (cebreado), como pedía el enunciado de la tarea.
+- **Estructura:** cabecera con navegación, contenido principal y pie de página con enlaces (política de privacidad, redes sociales y aviso legal), común a todas las páginas.
 
-+ He querido añadir un fondo en movimiento y que estuviese en bucle para que no hubiese ningún corte durante el tiempo que el usuario está visualizando la página. A ese fondo le he añadido un _blur_ para que haga contraste con las letras y éstas sean más legibles.
+## Tecnologías
 
-+ Las tarjetas de 'Servicios' las he hecho con un degradado de 3 colores claritos y les he bajado la opacidad para darle ese efecto _glass_.
+- **HTML5** semántico (`header`, `nav`, `main`, `section`, `aside`, `footer`, `table`)
+- **CSS3**: Flexbox, variables CSS (`:root`), degradados, transparencias, animaciones y efectos de desenfoque
+- Diseño con identidad visual propia: logo, favicon e iconos
 
-+ Los iconos de las tarjetas de 'Servicios' las he buscado en webs de imágenes de uso libre y he querido que todas tuvieran el mismo estilo 3D glossy para mantener la coherencia entre ellas.
+## Estructura del repositorio
 
-+ El icono del _header_ y del favicon lo he buscado también en una web de imágenes de uso libre. El del favicon venía a color y el del _header_ lo he convertido en blanco en un programa de edición de imágenes para que vaya a conjunto con el nombre de la empresa y el _nav_.
+```
+proyecto-web-consultora/
+├── index.html
+├── proyecto-reservas.html
+├── cronologia.html
+├── contacto.html
+├── css/
+│   └── style.css
+├── img/
+│   └── (logo, favicon e iconos de la web)
+├── docs/
+│   └── Captura_pagina_inicio.png
+└── README.md
+```
 
-+ Para la tabla también he elegido colores azules y para las filas pares e impares he añadido un cebreado como indicaba el enunciado de la tarea.
+## Cómo ejecutarlo
 
-## Dificultades
+No necesita instalación ni dependencias.
 
-1. **Posicionamiento con el degradado de fondo**
+1. Clona el repositorio o descárgalo con **Code → Download ZIP** y descomprímelo por completo.
+2. Abre `index.html` en tu navegador.
 
-Mi intención en todas las páginas era añadir un fondo con un degradado que fuera de transparente a morado a modo de transición entre el fondo en movimiento y los elementos que están delante.
-El problema que me surgía constantemente era que ese "flexbox-fondo" se encogía, no abarcaba todo el ancho de la pantalla, a veces aparecía arriba del todo, otras abajo o incluso no llegaba hasta el footer dejando un hueco entre ambos.
-Me dí cuenta de que había un problema de posicionamiento, en mi caso que no estaba cerrando bien la etiqueta /div donde correspondía. La solución finalmente llegó al poner el /div de ese class="flexbox-fondo" JUSTO DESPUÉS de /main y no antes como yo lo estaba haciendo.
+```bash
+git clone https://github.com/irisrodriguezz/proyecto-web-consultora.git
+```
 
-2. **Variables CSS para colores y degradados con transparencia**
+> Si descargas el ZIP, descomprime todo antes de abrir la web; si no, las imágenes y los estilos no cargarán.
 
-A la hora de hacer uso de variables CSS (:root { --color-primary: ... }) para la paleta de colores me surgió un problema, y es que, cuando yo quería añadir colores o degradados con transparencia éstos no funcionaban. Leyendo en páginas y foros descubrí que mi problema venía porque la notación hexadecimal no puede almacenar información del canal alfa en CSS.
-(Esto es algo que ha cambiado con CSS Color 5 que ya presenta algunas funciones nuevas y estupendas para manipular valores hexadecimales existentes, incluido el cambio de su canal alfa). Encontré la solución en la web stackoverflow de la mano del siguiente comentario:
+## Autoría
 
-https://stackoverflow.com/a/78541165
+Proyecto realizado por Iris Rodríguez Ujj · Ciclo de Desarrollo de Aplicaciones Web · IES Severo Ochoa (Elche).
 
->Posted by Weber K.
-Retrieved 2025-12-22, License - CC BY-SA 4.0
-*/
-
-:root {
-  --color: #f0f0f0;
-  --opacity: 0.5;
-}
-.myclass {
-  background-color: rgb(from var(--color) r g b / var(--opacity))
-}
-
-Por tanto la solución fue establecer por un lado el --color y por otro lado su --opacity y unir ambos con esa línea de código en la propiedad background-color.
+GitHub: [@irisrodriguezz](https://github.com/irisrodriguezz)
